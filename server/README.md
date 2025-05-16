@@ -65,3 +65,9 @@ npm i concurrently
 
 # Now in package.json add in scripts 
 "dev": "concurrently \"npm run watch\" \"npm run server\""
+
+# for email we can use nodemailer
+npm i nodemailer
+
+# copy the basic template
+# goto brevo in browser and open smtp & api

@@ -10,7 +10,7 @@
     "build": "tsc && npm run copy-files",
     "dev": "concurrently \"npm run watch\" \"npm run server\" \"npm run watch-views\"",
     "copy-files": "copyfiles -u 1 \"src/views/**/*\" dist/",
-    "watch-views" : "nodemon --watch src/views -e ejs -x \"npm run copy-files\""
+    "watch-views": "nodemon --watch src/views -e ejs -x \"npm run copy-files\""
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,7 @@
     "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "nodemailer": "^7.0.3",
     "prisma": "^6.7.0"
   },
   "devDependencies": {
