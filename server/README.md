@@ -71,3 +71,14 @@ npm i nodemailer
 
 # copy the basic template
 # goto brevo in browser and open smtp & api
+
+
+# install docker in system after that run command
+docker run -d --name redis-server -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
+
+# this will install redis
+
+# now install bullMq in node server
+npm i bullmq
+
+# BullMQ is a Node.js library that implements a fast and robust queue system built on top of Redis that helps in resolving many modern age micro-services architectures.
