@@ -74,7 +74,7 @@ npm i nodemailer
 
 
 # install docker in system after that run command
-docker run -d --name redis-server -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
+docker run -d --name redis-server -p 6379:6379 -p 8001:8001 redis/redis-stack:latest ==> to start new redis
 
 # this will install redis
 
@@ -82,3 +82,7 @@ docker run -d --name redis-server -p 6379:6379 -p 8001:8001 redis/redis-stack:la
 npm i bullmq
 
 # BullMQ is a Node.js library that implements a fast and robust queue system built on top of Redis that helps in resolving many modern age micro-services architectures.
+
+# docker commands
+docker start redis-server ==> to start redis server
+docker ps -a ==> list all containers
