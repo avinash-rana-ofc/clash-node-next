@@ -1,8 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import React from "react";
+import RegisterForm from "@/components/auth/RegisterForm";
 
 export default function Register() {
   return (
@@ -13,47 +11,7 @@ export default function Register() {
         </h1>
         <h1 className="font-bold text-3xl">Register Page</h1>
         <p>Welcome to clash</p>
-        <form action="">
-          <div className="mt-4">
-            <Label htmlFor="">Name</Label>
-            <Input
-              id="name"
-              type="text"
-              name="name"
-              placeholder="Enter your name..."
-            />
-          </div>
-          <div className="mt-4">
-            <Label htmlFor="">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              name="email"
-              placeholder="Enter your email..."
-            />
-          </div>
-          <div className="mt-4">
-            <Label htmlFor="">Password</Label>
-            <Input
-              id="password"
-              type="password"
-              name="password"
-              placeholder="Enter your password..."
-            />
-          </div>
-          <div className="mt-4">
-            <Label htmlFor="">Confirm Password</Label>
-            <Input
-              id="cpassword"
-              type="password"
-              name="confirm_password"
-              placeholder="Enter your confirm password..."
-            />
-          </div>
-          <div className="mt-4">
-            <Button className="w-full">Submit</Button>
-          </div>
-        </form>
+        <RegisterForm />
         <p className="mt-2 text-center">
           Already registered ?{" "}
           <strong>
