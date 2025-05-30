@@ -16,7 +16,7 @@ router.post("/login", async (req: Request, res: Response) => {
   try {
     const body = req.body;
     const payload = loginSchema.parse(body);
-    console.log("payload", payload);
+    //console.log("payload", payload);
     //* Check email
     const user = await prisma.user.findUnique({
       where: { email: payload.email },
@@ -76,12 +76,64 @@ router.post("/login", async (req: Request, res: Response) => {
   }
 });
 
+// * Login Check route
+router.post("/check/credentials", async (req: Request, res: Response) => {
+  try {
+    const body = req.body;
+    console.log("incheck credential")
+    const payload = loginSchema.parse(body);
+    //console.log("payload", payload);
+    //* Check email
+    const user = await prisma.user.findUnique({
+      where: { email: payload.email },
+    });
+
+    if (!user || user === null) {
+      res.status(422).json({
+        errors: {
+          email: "No user found with this email",
+        },
+      });
+      return;
+    }
+
+    //* Check Password
+    const compare = await bcrypt.compare(payload.password, user?.password!);
+    console.log("compare", compare);
+    if (!compare) {
+      res.status(422).json({
+        errors: {
+          password: "Invalid Password!",
+        },
+      });
+      return;
+    }
+
+    res.json({
+      message: "Logged in Successfully!!",
+      data: {},
+    });
+    return;
+  } catch (error) {
+    if (error instanceof ZodError) {
+      const errors = formatError(error);
+      res.status(422).json({ message: "Invalid data", errors });
+      return;
+    }
+    res.status(500).json({
+      message: "Something went wrong. Please try again later!",
+      error,
+    });
+    return;
+  }
+});
+
 // * Register route
 router.post("/register", async (req: Request, res: Response) => {
   try {
     const body = req.body;
     const payload = registerSchema.parse(body);
-    console.log("payload", payload);
+    //console.log("payload", payload);
 
     //* Check User Exist with email or not
     let user = await prisma.user.findUnique({

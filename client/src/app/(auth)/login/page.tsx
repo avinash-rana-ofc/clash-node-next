@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import LoginForm from "@/components/auth/LoginForm";
 import Link from "next/link";
 import React from "react";
 
@@ -13,32 +11,7 @@ export default function Login() {
         </h1>
         <h1 className="font-bold text-3xl">Login Page</h1>
         <p>Welcome back</p>
-        <form action="">
-          <div className="mt-4">
-            <Label htmlFor="">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              name="email"
-              placeholder="Enter your email..."
-            />
-          </div>
-          <div className="mt-4">
-            <Label htmlFor="">Password</Label>
-            <Input
-              id="password"
-              type="password"
-              name="password"
-              placeholder="Enter your password..."
-            />
-            <div className="font-bold text-right">
-              <Link href="forget-password">Forget Password ?</Link>
-            </div>
-          </div>
-          <div className="mt-4">
-            <Button className="w-full">Submit</Button>
-          </div>
-        </form>
+        <LoginForm />
         <p className="mt-2 text-center">Don't have an account ?{" "} <strong><Link href="/register">Register</Link></strong></p>
       </div>
     </div>
